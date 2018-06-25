@@ -1,16 +1,14 @@
 package iota_test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jota.IotaAPI;
 import jota.dto.response.GetNewAddressResponse;
 import jota.dto.response.GetNodeInfoResponse;
 import jota.dto.response.GetTransferResponse;
-import jota.dto.response.SendTransferResponse;
 import jota.model.Bundle;
 import jota.model.Transaction;
-import jota.model.Transfer;
+import rpi.sensehat.api.SenseHat;
 
 public class TestClass {
 
@@ -18,8 +16,8 @@ public class TestClass {
 	private static final String receiver = "PLRGVTRVZDQFCYUMCQYPGZOELHAUBXRQDALB9OUNFRTUAPUMPVU9BMKBSHYYKHATVHVKDZDXVLCOLVXKDUXGDTIQ9X";
 	private static final String address = "CQKODTHRWGQHD9MYWSSZKKQFOVJMCYPIEGFXECCNBGOBIC9CYPFGYYKERCO9MKGQGJDPCSQRGAJMAAGY9YBMLOOAWA";
 
-	static boolean send = false;
-	static boolean receive = true;
+	static boolean send = true;
+	static boolean receive = false;
 
 	public static void main(String[] args) throws Exception {
 		// https://dyn.tangle-nodes.com:443
@@ -29,12 +27,12 @@ public class TestClass {
 
 		if (send) {
 
-			final GetNewAddressResponse res1 = api.getNewAddress(seed, 1, 0, true, 5, false);
+			final GetNewAddressResponse res1 = api.getNewAddress(seed, 2, 0, true, 5, false);
 			System.out.println(res1);
-			List<Transfer> transfers = new ArrayList<>();
-			transfers.add(new Transfer(receiver, 0, "TESTMSG", "TESTTAG"));
-			@SuppressWarnings("unused")
-			SendTransferResponse str = api.sendTransfer(seed, 2, 9, 14, transfers, null, null, false);
+			//List<Transfer> transfers = new ArrayList<>();
+			//transfers.add(new Transfer(receiver, 0, "TESTMSG", "TESTTAG"));
+//			@SuppressWarnings("unused")
+			//SendTransferResponse str = api.sendTransfer(seed, 2, 9, 14, transfers, null, null, false);
 		}
 		if (receive) {
 			GetTransferResponse tr = api.getTransfers(seed, 1, 0, 0, false);
@@ -50,5 +48,7 @@ public class TestClass {
 				System.out.println(t);
 			}
 		}
+		SenseHat senseHat = new SenseHat();
+		senseHat.ledMatrix.showMessage("abc");
 	}
 }

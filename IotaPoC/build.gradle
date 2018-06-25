@@ -21,6 +21,7 @@ repositories {
 dependencies {
 
  	compile 'com.github.iotaledger:iota~lib~java:0.9.10'
+ 	compile files ("src/main/resources/java-executor-1.0-SNAPSHOT.jar");
 
 	// https://mvnrepository.com/artifact/com.pi4j/pi4j-core
 	compile group: 'com.pi4j', name: 'pi4j-core', version: '1.1'
