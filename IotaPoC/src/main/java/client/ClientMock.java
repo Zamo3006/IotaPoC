@@ -24,7 +24,7 @@ public class ClientMock {
 	public static final String TAG = TrytesConverter.toTrytes("MOCK");
 	private static final Logger log = LoggerFactory.getLogger(ClientMock.class);
 
-	private String receivingAddress = "LFCUJTNB9DCFKMJYKVIWNVDHDMYYGPOMAYHCSNCZYODZMEVQKNEUTIBYSCHZZMDMOCFKIUUVFWUQDOSHYBHQKDQUWA";
+	private String receivingAddress = "NCRYGFNYTHZUAGUCSAQEKQDXZTWNCLTKPGRGQUJVKWUAWMURNPGKETOSIQRVZJKAWQLHZKZQPHCH9EQZBP9YCHCJPZ";
 	
 	private boolean send = true;
 	private boolean receive = true;
@@ -75,7 +75,7 @@ public class ClientMock {
 			api.sendTransfer(seed, 2, 9, 14, transfers, null, null, false);
 			log.info("send temperature request to " + receivingAddress);
 
-			Thread.sleep(30000);
+			Thread.sleep(60000);
 
 			log.info("Getting temperature");
 			List<Transaction> tr = api.findTransactionObjectsByAddresses(new String[] { address });
@@ -91,9 +91,9 @@ public class ClientMock {
 		}
 	}
 	
-	public void sendMessage() {		
+	public void sendMessage(String message) {		
 		try {		
-			String cMsg = TrytesConverter.toTrytes("Message testMessage xx x");
+			String cMsg = TrytesConverter.toTrytes("Message "+message);
 			List<Transfer> transfers = new ArrayList<>();
 			transfers.add(new Transfer(receivingAddress, 0, cMsg, TAG));
 			api.sendTransfer(seed, 2, 9, 14, transfers, null, null, false);
@@ -107,7 +107,7 @@ public class ClientMock {
 		if (send) {
 			AnswerSender answerSender = new AnswerSender();
 			answerSender.setVariable(
-					new String[] { "tom 1 a", "tom 2 b", "tom 1 a", "franz 1 b", "franz 2 b", "franz 3 lol" });
+					new String[] { "tom 1 a", "tom 2 b", "tom 1 b", "franz 1 b", "franz 2 b", "franz 3 lol" });
 			Timer t = new Timer();
 			t.schedule(answerSender, 0, 1000);
 			try {
@@ -128,7 +128,7 @@ public class ClientMock {
 				api.sendTransfer(seed, 2, 9, 14, transfers, null, null, false);
 				log.info("send answer request to " + receivingAddress);
 
-				Thread.sleep(20000);
+				Thread.sleep(60000);
 
 				log.info("Getting answers");
 				List<Transaction> tr = api.findTransactionObjectsByAddresses(new String[] { address });

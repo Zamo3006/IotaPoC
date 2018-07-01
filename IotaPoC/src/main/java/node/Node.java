@@ -12,6 +12,7 @@ import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import iotaUtil.NodeConnector;
 import jota.IotaAPI;
 import jota.error.ArgumentException;
 import jota.model.Transaction;
@@ -27,27 +28,19 @@ public class Node extends TimerTask {
 	private String receivingAddress;
 	private Set<Transaction> transactions;
 
-	public Node(IotaAPI api, boolean senseHat) {
+	public Node(IotaAPI api, Integer index) {
 		this.api = api;
-		initialize(senseHat);
+		initialize(index);
 	}
 
-	private void initialize(boolean s) {
+	private void initialize(Integer index) {
 		transactions = new HashSet<>();
-		if (s) {
-			senseHat = new SenseHat();
-			PiCommands.setSenseHat(senseHat);
-		}
+		senseHat = new SenseHat();
+		PiCommands.setSenseHat(senseHat);
 		try {
-			receivingAddress = api.getNewAddress(seed, 2, 5, true, 5, false).getAddresses().get(0);
+			index = index == null ? 0 : index;
+			receivingAddress = api.getNewAddress(seed, 2, index, true, 5, false).getAddresses().get(0);
 			log.info("receiving address: " + receivingAddress);
-			if (s) {
-				synchronized (senseHat) {
-					senseHat.ledMatrix.showMessage(receivingAddress);
-					senseHat.ledMatrix.waitFor(5);
-					senseHat.ledMatrix.clear();
-				}
-			}
 		} catch (ArgumentException e) {
 			log.error(e.getMessage());
 		}
@@ -103,6 +96,7 @@ public class Node extends TimerTask {
 				log.info("no new messages");
 			}
 		} catch (Exception e) {
+			api = NodeConnector.getApi();
 			log.error(e.getMessage());
 		}
 	}
