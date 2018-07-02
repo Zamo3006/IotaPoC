@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.GridPane;
 import jota.utils.InputValidator;
 import jota.utils.SeedRandomGenerator;
 
@@ -23,11 +23,11 @@ public class ClientController {
 	private boolean developer;
 
 	@FXML
-	private Pane QuizInterface;
+	private GridPane QuizInterface;
 	@FXML
-	private Pane DeveloperInterface;
+	private GridPane DeveloperInterface;
 	@FXML
-	private Pane Welcome;
+	private GridPane Welcome;
 	@FXML
 	private TextArea SeedInput;
 	@FXML
@@ -42,7 +42,9 @@ public class ClientController {
 	private Button Temperature;
 	@FXML
 	private Button Answers;
-
+	@FXML
+	private TextArea AnswerStats;
+	
 	private String user;
 	private String seed;
 	private String address;
@@ -140,5 +142,9 @@ public class ClientController {
 		Answers.setDisable(true);
 		sender.getAnswerer().setButtons(Answers);
 		sender.getAnswerer().setText(AnswersField);
+	}
+	@FXML
+	public void generateStats(ActionEvent event) {
+		
 	}
 }
