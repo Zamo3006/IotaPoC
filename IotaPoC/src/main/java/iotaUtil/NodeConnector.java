@@ -54,8 +54,8 @@ public class NodeConnector {
 	private static void initializeNodeList() {
 		nodeList = new ArrayList<>();
 		//nodeList.add(new BuilderInfo("https", "dyn.tangle-nodes.com", "443"));
-		nodeList.add(new BuilderInfo("http", "node01.iotatoken.nl", "14265"));
 		nodeList.add(new BuilderInfo("http", "node02.iotatoken.nl", "14265"));
+		nodeList.add(new BuilderInfo("http", "node01.iotatoken.nl", "14265"));
 		nodeList.add(new BuilderInfo("http", "node03.iotatoken.nl", "15265"));
 		nodeList.add(new BuilderInfo("http", "node04.iotatoken.nl", "14265"));
 		nodeList.add(new BuilderInfo("http", "node05.iotatoken.nl", "16265"));

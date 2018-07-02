@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.65"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="client.ClientController">
+	<children>
+		<Pane fx:id="Welcome" prefWidth="310">
+			<children>
+				<Text layoutX="70.0" layoutY="45.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="Willkommen beim " underline="true">
+					<font>
+						<Font size="21.0" />
+					</font>
+				</Text>
+				<Text layoutX="75.0" layoutY="80.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="Blockchain Quiz!" underline="true">
+					<font>
+						<Font size="21.0" />
+					</font>
+				</Text>
+				<Text layoutX="27.0" layoutY="130.0" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="Username:" />
+				<TextField fx:id="NameInput" layoutX="90.0"
+					layoutY="120.0" prefHeight="25.0" prefWidth="182.0" />
+				<Text layoutX="27.0" layoutY="160" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="Seed:" />
+				<TextArea fx:id="SeedInput" layoutX="90.0" layoutY="150.0"
+					prefHeight="25.0" prefWidth="182.0" />
+				<Button fx:id="Seed" layoutX="90" layoutY="200"
+					mnemonicParsing="false" onAction="#generateSeed"
+					text="Seed erstellen" />
+				<Button fx:id="Login" layoutX="208.0" layoutY="200"
+					mnemonicParsing="false" onAction="#login" text="Login" />
+			</children>
+		</Pane>
+		<Pane fx:id="QuizInterface" disable="true" visible="false">
+			<children>
+				<Text layoutX="5" layoutY="15" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="Sensor" underline="true">
+					<font>
+						<Font size="15.0" />
+					</font>
+				</Text>
+				<TextArea fx:id="Message" layoutX="5" layoutY="25"
+					prefHeight="25.0" prefWidth="280" />
+				<Button fx:id="sendMessage" layoutX="5" layoutY="65"
+					mnemonicParsing="false" onAction="#sendMessage"
+					text="Nachricht schicken" />
+				<Button fx:id="Temperature" layoutX="140" layoutY="65"
+					mnemonicParsing="false" onAction="#getTemperature"
+					text="Temperature abfragen" />
+				<Text layoutX="5" layoutY="135" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="Quiz" underline="true">
+					<font>
+						<Font size="15.0" />
+					</font>
+				</Text>
+				<!-- first question -->
+				<Text layoutX="5.0" layoutY="150" strokeType="OUTSIDE" strokeWidth="0.0" text="Qestion 1:" />
+				<Button fx:id="1A" layoutX="5" layoutY="160"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="A" />
+				<Button fx:id="1B" layoutX="30" layoutY="160"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="B" />
+				<Button fx:id="1C" layoutX="55" layoutY="160"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="C" />
+				<Button fx:id="1D" layoutX="80" layoutY="160"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="D" />
+				<!-- end of one question -->
+				<!-- second question -->
+				<Text layoutX="120.0" layoutY="150" strokeType="OUTSIDE" strokeWidth="0.0" text="Qestion 2:" />
+				<Button fx:id="2A" layoutX="120.0" layoutY="160"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="A" />
+				<Button fx:id="2B" layoutX="145" layoutY="160"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="B" />
+				<Button fx:id="2C" layoutX="170" layoutY="160"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="C" />
+				<Button fx:id="2D" layoutX="195" layoutY="160"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="D" />
+				<!-- end of one question -->
+				<!-- third question -->
+				<Text layoutX="5.0" layoutY="220" strokeType="OUTSIDE" strokeWidth="0.0" text="Qestion 3:" />
+				<Button fx:id="3A" layoutX="5" layoutY="230"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="A" />
+				<Button fx:id="3B" layoutX="30" layoutY="230"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="B" />
+				<Button fx:id="3C" layoutX="55" layoutY="230"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="C" />
+				<Button fx:id="3D" layoutX="80" layoutY="230"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="D" />
+				<!-- end of one question -->
+				<!-- forth question -->
+				<Text layoutX="120.0" layoutY="220" strokeType="OUTSIDE" strokeWidth="0.0" text="Qestion 4:" />
+				<Button fx:id="4A" layoutX="120.0" layoutY="230"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="A" />
+				<Button fx:id="4B" layoutX="145" layoutY="230"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="B" />
+				<Button fx:id="4C" layoutX="170" layoutY="230"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="C" />
+				<Button fx:id="4D" layoutX="195" layoutY="230"
+					mnemonicParsing="false" onAction="#sendAnswer"
+					text="D" />
+				<!-- end of one question -->
+			</children>
+		</Pane>
+		<Pane fx:id="DeveloperInterface" disable="true" visible="false">
+			<children>
+				<Button fx:id="Answers" layoutX="0" layoutY="15"
+					mnemonicParsing="false" onAction="#receiveAnswers"
+					text="Antworten abfragen" />
+				<TextArea fx:id="AnswersField" layoutX="5" layoutY="45"
+					 prefWidth="310"/>
+			</children>
+		</Pane>
+
+	</children>
+</AnchorPane>

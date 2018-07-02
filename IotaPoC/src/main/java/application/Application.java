@@ -2,7 +2,7 @@ package application;
 
 import java.util.Timer;
 
-import client.ClientMock;
+import client.Client;
 import iotaUtil.NodeConnector;
 import node.Node;
 
@@ -18,15 +18,15 @@ public class Application {
 			System.out.println("Usage -node , -client or -developer");
 			System.exit(1);
 		}
+		Integer index = null;
+		if (args.length > 1) {
+			index = Integer.parseInt(args[1]);
+		}
 		if (args[0].equals(developer)) {
-			runAsClient(true);
+			runAsClient(true, index);
 		} else if (args[0].equals(client)) {
-			runAsClient(false);
-		} else if (args[0].equals(node)) {
-			Integer index = null;
-			if (args.length > 1) {
-				index = Integer.parseInt(args[1]);
-			}
+			runAsClient(false, index);
+		} else if (args[0].equals(node)) {			
 			runAsNode(index);
 		} else {
 			System.out.println("Usage -node , -client or -developer");
@@ -40,10 +40,7 @@ public class Application {
 		timer.schedule(node, 0, period);
 	}
 
-	private static void runAsClient(boolean developer) {
-		ClientMock mock = new ClientMock().initialize(true, "AMNUWDLJFATMJRWQIUTEVYCTYRDKMKYAAEIMTWFMAEQAN9DJXVVRVFWJGKSESKOQNVHPHKQEVNR9VSXZWNXCPOZPKY");
-		//mock.questionCycle(true, true);
-		 mock.sendMessage("ä!");
-		// mock.getTemperature();
+	private static void runAsClient(boolean developer, int index) {
+		Client.launch(Client.class, String.valueOf(developer), String.valueOf(index));
 	}
 }

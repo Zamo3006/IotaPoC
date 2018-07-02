@@ -1,4 +1,4 @@
-package node;
+package iotaUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import iotaUtil.NodeConnector;
 import jota.IotaAPI;
 import jota.error.ArgumentException;
 import jota.model.Transfer;
@@ -38,7 +37,6 @@ public class PiCommands implements Runnable {
 	public PiCommands(String command, String seed) {
 		this.command = command;
 		this.seed = seed;
-		api = NodeConnector.getApi();
 		if (quiz == null) {
 			quiz = new Quiz();
 		}
@@ -110,7 +108,7 @@ public class PiCommands implements Runnable {
 	private void receiveAnswer() {
 		String name = StringUtils.substringBetween(command, " ", " ");
 		String question = StringUtils.substringBetween(command, name + " ", " ");
-		String answer = StringUtils.substringAfter(command, question + " ");
+		String answer = StringUtils.substringAfter(command, name+" "+ question + " ");
 		synchronized (quiz) {
 			quiz.addAnswer(name, question, answer);
 		}
@@ -118,6 +116,7 @@ public class PiCommands implements Runnable {
 
 	@Override
 	public void run() {
+		api = NodeConnector.getApi();
 		switch (getCommand()) {
 		case 0:
 			break;
