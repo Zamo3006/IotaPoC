@@ -145,6 +145,7 @@ public class ClientController {
 	}
 	@FXML
 	public void generateStats(ActionEvent event) {
+		String answers = AnswersField.getText();
 		
 	}
 }
