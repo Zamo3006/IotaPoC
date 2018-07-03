@@ -1,9 +1,12 @@
 package quiz;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.StringTokenizer;
+import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,9 +40,12 @@ public class Quiz {
 	public String getAnswers() {
 		StringBuilder sb = new StringBuilder();
 		for(Entry<String, Map<String, String>> e : answers.entrySet()) {
-			sb.append("Player: "+e.getKey()+" Answers:\n");
-			for(Entry<String, String> e2 : e.getValue().entrySet()) {
-				sb.append(" Question "+e2.getKey()+": "+e2.getValue());
+			sb.append("Player: "+e.getKey()+":\n");
+			//for(Entry<String, String> e2 : e.getValue().entrySet()) {
+			List<String> sorted = new ArrayList<>(e.getValue().keySet());
+			Collections.sort(sorted);
+			for(String e2 : sorted) {	
+				sb.append("Q"+e2+": "+e.getValue().get(e2)+", ");
 			}
 			sb.append("\n");
 		}

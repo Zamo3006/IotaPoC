@@ -234,7 +234,7 @@
 					GridPane.rowIndex="1" mnemonicParsing="false"
 					onAction="#receiveAnswers" text="Antworten abfragen" />
 				<TextArea fx:id="AnswersField" GridPane.columnIndex="1"
-					GridPane.rowIndex="2" GridPane.columnSpan="2" prefWidth="310" />
+					GridPane.rowIndex="2" GridPane.columnSpan="2" prefWidth="310" prefHeight = "350"/>
 				
 			</children>
 		</GridPane>

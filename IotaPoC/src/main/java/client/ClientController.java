@@ -142,10 +142,5 @@ public class ClientController {
 		Answers.setDisable(true);
 		sender.getAnswerer().setButtons(Answers);
 		sender.getAnswerer().setText(AnswersField);
-	}
-	@FXML
-	public void generateStats(ActionEvent event) {
-		String answers = AnswersField.getText();
-		
-	}
+	}	
 }
