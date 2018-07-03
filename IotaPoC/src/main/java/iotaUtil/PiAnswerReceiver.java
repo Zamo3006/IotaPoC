@@ -24,7 +24,7 @@ public class PiAnswerReceiver implements Runnable{
 	private Button[] buttons;
 	
 	public PiAnswerReceiver() {
-		api = NodeConnector.getApi();
+		
 	}
 	
 	public void setAddress(String address) {
@@ -41,6 +41,7 @@ public class PiAnswerReceiver implements Runnable{
 	
 	@Override
 	public void run() {
+		api = NodeConnector.getApi();
 		final long time = System.currentTimeMillis();
 		boolean received = false;
 		String stuff = "";

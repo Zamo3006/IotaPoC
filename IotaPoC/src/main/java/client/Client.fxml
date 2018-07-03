@@ -96,11 +96,11 @@
 						<Button fx:id="1C" GridPane.columnIndex="3"
 							GridPane.rowIndex="2" GridPane.columnSpan="1"
 							mnemonicParsing="false" onAction="#sendAnswer" text="C"
-							disable="true" />
+							 />
 						<Button fx:id="1D" GridPane.columnIndex="4"
 							GridPane.rowIndex="2" GridPane.columnSpan="1"
 							mnemonicParsing="false" onAction="#sendAnswer" text="D"
-							disable="true" />
+							 />
 						<!-- end of one question -->
 						<!-- second question -->
 						<Text GridPane.columnIndex="6" GridPane.rowIndex="1"
@@ -206,7 +206,23 @@
 							mnemonicParsing="false" onAction="#sendAnswer" text="D"
 							disable="true" />
 						<!-- end of one question -->
-
+						<Text GridPane.columnIndex="6" GridPane.rowIndex="7"
+							GridPane.columnSpan="4" strokeType="OUTSIDE" strokeWidth="0.0"
+							text="Question 0:" />
+						<Button fx:id="0A" GridPane.columnIndex="6"
+							GridPane.rowIndex="8" GridPane.columnSpan="1"
+							mnemonicParsing="false" onAction="#sendAnswer" text="A" />
+						<Button fx:id="0B" GridPane.columnIndex="7"
+							GridPane.rowIndex="8" GridPane.columnSpan="1"
+							mnemonicParsing="false" onAction="#sendAnswer" text="B" />
+						<Button fx:id="0C" GridPane.columnIndex="8"
+							GridPane.rowIndex="8" GridPane.columnSpan="1"
+							mnemonicParsing="false" onAction="#sendAnswer" text="C"
+							disable="true" />
+						<Button fx:id="0D" GridPane.columnIndex="9"
+							GridPane.rowIndex="8" GridPane.columnSpan="1"
+							mnemonicParsing="false" onAction="#sendAnswer" text="D"
+							disable="true" />
 					</children>
 				</GridPane>
 			</children>
@@ -217,13 +233,9 @@
 				<Button fx:id="Answers" GridPane.columnIndex="1"
 					GridPane.rowIndex="1" mnemonicParsing="false"
 					onAction="#receiveAnswers" text="Antworten abfragen" />
-				<Button fx:id="Stats" GridPane.columnIndex="2"
-					GridPane.rowIndex="1" mnemonicParsing="false"
-					onAction="#generateStats" text="Antworten abfragen" />
 				<TextArea fx:id="AnswersField" GridPane.columnIndex="1"
 					GridPane.rowIndex="2" GridPane.columnSpan="2" prefWidth="310" />
-				<TextArea fx:id="AnswersStats" GridPane.columnIndex="1"
-					GridPane.rowIndex="3" GridPane.columnSpan="2" prefWidth="310" />
+				
 			</children>
 		</GridPane>
 

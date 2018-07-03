@@ -73,8 +73,8 @@ public class ClientController {
 				alert.close();
 			}
 		} else {
-			if (NameInput.getText().isEmpty() || NameInput.getText().contains(" ")) {
-				Alert alert = new Alert(AlertType.ERROR, "Name is empty or contains spaces", ButtonType.OK);
+			if (NameInput.getText().isEmpty() || NameInput.getText().contains(" ") || NameInput.getText().length()>15) {
+				Alert alert = new Alert(AlertType.ERROR, "Name must not be empty or contains spaces or be more than 15 characters", ButtonType.OK);
 				alert.showAndWait();
 				if (alert.getResult() == ButtonType.OK) {
 					alert.close();

@@ -84,8 +84,8 @@ public class PiCommands implements Runnable {
 		synchronized (senseHat) {
 			log.info("show message: " + message);
 			senseHat.ledMatrix.showMessage(message);
-			senseHat.ledMatrix.waitFor(5);
-			senseHat.ledMatrix.clear();
+			//senseHat.ledMatrix.waitFor(5);
+			//senseHat.ledMatrix.clear();
 		}
 	}
 
