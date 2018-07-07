@@ -53,7 +53,6 @@ public class NodeConnector {
 
 	private static void initializeNodeList() {
 		nodeList = new ArrayList<>();
-		//nodeList.add(new BuilderInfo("https", "dyn.tangle-nodes.com", "443"));
 		nodeList.add(new BuilderInfo("http", "node02.iotatoken.nl", "14265"));
 		nodeList.add(new BuilderInfo("http", "node01.iotatoken.nl", "14265"));
 		nodeList.add(new BuilderInfo("http", "node03.iotatoken.nl", "15265"));
@@ -66,7 +65,6 @@ public class NodeConnector {
 		try {
 			@SuppressWarnings("unused")
 			GetNodeInfoResponse rsp = api.getNodeInfo();
-			// log.info("connected to: " + rsp);
 			log.info("connected to node");
 			return true;
 		} catch (Exception e) {

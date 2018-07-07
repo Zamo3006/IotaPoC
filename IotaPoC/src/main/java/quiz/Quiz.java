@@ -6,7 +6,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +40,6 @@ public class Quiz {
 		StringBuilder sb = new StringBuilder();
 		for(Entry<String, Map<String, String>> e : answers.entrySet()) {
 			sb.append("Player: "+e.getKey()+":\n");
-			//for(Entry<String, String> e2 : e.getValue().entrySet()) {
 			List<String> sorted = new ArrayList<>(e.getValue().keySet());
 			Collections.sort(sorted);
 			for(String e2 : sorted) {	
